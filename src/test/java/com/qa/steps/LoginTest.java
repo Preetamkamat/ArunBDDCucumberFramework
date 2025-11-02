@@ -45,6 +45,7 @@ public class LoginTest {
 
     @And("User should be taken to My Account page")
     public void user_should_be_taken_to_my_account_page() {
+        System.out.println(driver.getTitle());
         Assert.assertEquals("My Account", driver.getTitle());
         driver.quit();
     }
@@ -58,9 +59,9 @@ public class LoginTest {
 
     @Then("User should not get login")
     public void user_should_not_get_login() {
-        List<WebElement> logoutTextNotAvailable = driver.findElements(By.xpath("//div[@class='list-group']/a["));
-        for (int i = 0; i < logoutTextNotAvailable.size(); i++) {
-            System.out.println(logoutTextNotAvailable.get(i).getText());
+        List<WebElement> logoutTextNotAvailable = driver.findElements(By.xpath("//div[@class='list-group']/a"));
+        for (WebElement webElement : logoutTextNotAvailable) {
+            System.out.println(webElement.getText());
         }
     }
 
