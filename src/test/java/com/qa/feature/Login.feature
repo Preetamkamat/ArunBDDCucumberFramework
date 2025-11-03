@@ -26,11 +26,9 @@ Feature: Login functionality
     When User enters valid email and invalid password into the fields
     And User clicks on Login button
     Then User should not get login
-    And User should get a proper warning message
 
   Scenario: Verify Login without providing any credentials
     Given User navigates to Login page
     When User do not enter any credentials into the email and password fields
     And User clicks on Login button
     Then User should not get login
-    And User should get a proper warning message

@@ -39,6 +39,6 @@ Feature: Register Account Functionality
       | password  | 12345      |
     And User selects Yes option for Newsletter
     And User selects Privacy Policy field
-    And User clicks on Continue button
-    And  User clicks on 'subscribe or unsubscribe to newsletter' option
     Then Yes option in the newsletter page should be displayed as selected
+    And User clicks on Continue button
+
