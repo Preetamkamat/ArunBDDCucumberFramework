@@ -19,6 +19,9 @@ public class HomePage {
     @FindBy(linkText = "Register")
     WebElement registerTextOnHomePage;
 
+    @FindBy(linkText = "Login")
+    WebElement loginDropMenuList;
+
     public void clickOnMyAccountDropMenu() {
         myAccountDropMenu.click();
     }
@@ -26,6 +29,11 @@ public class HomePage {
     public RegisterPage selectRegisterOptions() {
         registerTextOnHomePage.click();
         return new RegisterPage(driver);
+    }
+
+    public LoginPage selectLoginOptions() {
+        loginDropMenuList.click();
+        return new LoginPage(driver);
     }
 
 }
