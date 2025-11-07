@@ -1,61 +1,45 @@
 package com.qa.steps;
 
 import com.qa.base.Base;
-import com.qa.hooks.Hooks;
-import com.qa.pages.AccountSuccessPage;
 import com.qa.pages.HomePage;
-import com.qa.pages.RegisterPage;
+import com.qa.util.CommonUtils;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.en_old.Ac;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 import java.util.Map;
 
-import static com.qa.hooks.Hooks.driver;
-
-public class RegisterTest {
-    WebDriverWait myWait;
-    HomePage homePage;
-    RegisterPage registryPage;
-    AccountSuccessPage accountSuccessPage;
+public class RegisterTest extends Base {
 
     @Given("User navigates to Register Account page")
     public void user_navigates_to_register_account_page() {
         homePage = new HomePage(driver);
         homePage.clickOnMyAccountDropMenu();
-        registryPage = homePage.selectRegisterOptions();
+        registerPage = homePage.selectRegisterOptions();
 
     }
 
     @When("User enters below fields")
     public void user_enters_below_fields(DataTable dataTable) {
         Map<String, String> map = dataTable.asMap();
-        registryPage.setFirstNameField(map.get("firstName"));
-        registryPage.setLastNameField(map.get("lastName"));
-        String email = generateEmailWithNanoTime();
-        registryPage.setEmailAddressField(email);
-        registryPage.setTelephoneField(map.get("telephone"));
-        registryPage.setPasswordFieldField(map.get("password"));
-        registryPage.setConfirmPasswordFieldField(map.get("password"));
+        registerPage.setFirstNameField(map.get("firstName"));
+        registerPage.setLastNameField(map.get("lastName"));
+        String email = CommonUtils.generateEmailWithNanoTime();
+        registerPage.setEmailAddressField(email);
+        registerPage.setTelephoneField(map.get("telephone"));
+        registerPage.setPasswordFieldField(map.get("password"));
+        registerPage.setConfirmPasswordFieldField(map.get("password"));
     }
 
     @When("User selects Privacy Policy field")
     public void user_selects_privacy_policy_field() {
-        registryPage.clickOnAgreeCheckBox();
+        registerPage.clickOnAgreeCheckBox();
     }
 
     @When("User clicks on Continue button")
     public void user_clicks_on_continue_button() {
-        accountSuccessPage = registryPage.clickOnContinueButton();
+        accountSuccessPage = registerPage.clickOnContinueButton();
 
     }
 
@@ -76,17 +60,12 @@ public class RegisterTest {
 
     @When("User selects Yes option for Newsletter")
     public void user_selects_yes_option_for_newsletter() {
-        registryPage.selectYesNewsLetterOption();
+        registerPage.selectYesNewsLetterOption();
     }
 
     @Then("Yes option in the newsletter page should be displayed as selected")
     public void yes_option_in_the_newsletter_page_should_be_displayed_as_selected() {
-        registryPage.selectYesNewsLetterOption();
-    }
-
-    public static String generateEmailWithNanoTime() {
-        long nanoTime = System.nanoTime();
-        return "user_" + nanoTime + "@example.com";
+        registerPage.selectYesNewsLetterOption();
     }
 
 }

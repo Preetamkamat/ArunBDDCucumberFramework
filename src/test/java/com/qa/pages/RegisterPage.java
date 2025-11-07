@@ -1,5 +1,6 @@
 package com.qa.pages;
 
+import com.qa.base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,8 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
 
-public class RegisterPage {
-    WebDriver driver;
+public class RegisterPage extends Base {
 
     public RegisterPage(WebDriver driver) {
         this.driver = driver;

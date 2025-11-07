@@ -1,28 +1,21 @@
 package com.qa.base;
 
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import com.qa.pages.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 
-import java.time.Duration;
+import java.util.Properties;
 
 public class Base {
-//    public WebDriver driver;
-//
-//    @Before
-//    public void setUp() {
-//        driver = new EdgeDriver();
-//        driver.manage().window().maximize();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-//        driver.get("https://tutorialsninja.com/demo/");
-//    }
-//
-//    @After
-//    public void tearDown() {
-//        driver.quit();
-//    }
+    public Properties prop;
+    public WebDriver driver;
+    public HomePage homePage;
+    public LoginPage loginPage;
+    public AccountSuccessPage accountSuccessPage;
+    public MyAccountPage myAccountPage;
+    public SearchPage searchPage;
+    public RegisterPage registerPage;
+    public LogOutPage logOutPage;
+
 }
 

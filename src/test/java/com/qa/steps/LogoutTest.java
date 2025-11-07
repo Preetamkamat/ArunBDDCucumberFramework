@@ -1,25 +1,14 @@
 package com.qa.steps;
 
+import com.qa.base.Base;
 import com.qa.pages.HomePage;
-import com.qa.pages.LoginPage;
-import com.qa.pages.MyAccountPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-import static com.qa.hooks.Hooks.driver;
-import static com.qa.hooks.Hooks.prop;
-
-public class LogoutTest {
-
-    WebDriver driver;
-    HomePage homePage;
-    LoginPage loginPage;
-    MyAccountPage myAccountPage;
+public class LogoutTest extends Base {
 
     @Given("User is logged in")
     public void user_is_logged_in() {

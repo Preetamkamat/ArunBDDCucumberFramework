@@ -1,23 +1,14 @@
 package com.qa.steps;
 
+import com.qa.base.Base;
 import com.qa.pages.HomePage;
-import com.qa.pages.SearchPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-import static com.qa.hooks.Hooks.driver;
-import static com.qa.hooks.Hooks.prop;
-
-public class SearchTest {
-
-    WebDriver driver;
-    HomePage homePage;
-    SearchPage searchPage;
+public class SearchTest extends Base {
 
     @Given("User is on the Home page")
     public void user_is_on_the_home_page() {

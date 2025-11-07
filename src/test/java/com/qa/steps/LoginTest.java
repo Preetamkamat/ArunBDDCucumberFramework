@@ -1,24 +1,15 @@
 package com.qa.steps;
 
 
+import com.qa.base.Base;
 import com.qa.pages.HomePage;
-import com.qa.pages.LoginPage;
-import com.qa.pages.MyAccountPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
-import static com.qa.hooks.Hooks.driver;
-import static com.qa.hooks.Hooks.prop;
-
-public class LoginTest {
-    HomePage homePage;
-    LoginPage loginPage;
-    MyAccountPage myAccountPage;
+public class LoginTest extends Base {
 
     @Given("User navigates to Login page")
     public void user_navigates_to_login_page() {

@@ -1,23 +1,15 @@
 package com.qa.pages;
 
+import com.qa.base.Base;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static com.qa.hooks.Hooks.driver;
-import static com.qa.hooks.Hooks.prop;
-
-
-public class LogOutPage {
+public class LogOutPage extends Base {
     WebDriver driver;
 
     public LogOutPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
-    @FindBy(xpath = "")
-    WebElement one1;
 
 }
