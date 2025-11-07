@@ -22,6 +22,12 @@ public class HomePage {
     @FindBy(linkText = "Login")
     WebElement loginDropMenuList;
 
+    @FindBy(name = "search")
+    WebElement searchBoxField;
+
+    @FindBy(xpath = "//span[@class='input-group-btn']")
+    WebElement searchIconButton;
+
     public void clickOnMyAccountDropMenu() {
         myAccountDropMenu.click();
     }
@@ -34,6 +40,15 @@ public class HomePage {
     public LoginPage selectLoginOptions() {
         loginDropMenuList.click();
         return new LoginPage(driver);
+    }
+
+    public void enterProductInToSearchField(String searchText) {
+        searchBoxField.sendKeys(searchText);
+    }
+
+    public SearchPage clickOnSearchButton() {
+        searchBoxField.click();
+        return new SearchPage(driver);
     }
 
 }

@@ -1,33 +1,45 @@
 package com.qa.steps;
 
+import com.qa.pages.HomePage;
+import com.qa.pages.LoginPage;
+import com.qa.pages.MyAccountPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 import static com.qa.hooks.Hooks.driver;
+import static com.qa.hooks.Hooks.prop;
 
 public class LogoutTest {
+
+    WebDriver driver;
+    HomePage homePage;
+    LoginPage loginPage;
+    MyAccountPage myAccountPage;
+
     @Given("User is logged in")
     public void user_is_logged_in() {
-        driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
-        driver.findElement(By.linkText("Login")).click();
-        driver.findElement(By.id("input-email")).sendKeys("shanbhag@gmail.com");
-        driver.findElement(By.id("input-password")).sendKeys("test123");
-        driver.findElement(By.xpath("//input[@value='Login']")).click();
+        homePage = new HomePage(driver);
+        homePage.clickOnMyAccountDropMenu();
+        loginPage = homePage.selectLoginOptions();
+        loginPage.clickOnEmailIdField(prop.getProperty("validEmailId"));
+        loginPage.clickOnPasswordField(prop.getProperty("validPwd"));
+        myAccountPage = loginPage.clickOnLoginButton();
     }
 
     @When("User clicks on My Account drop menu")
     public void user_clicks_on_my_account_drop_menu() {
-        driver.findElement(By.xpath("//span[text()='My Account']")).click();
+        myAccountPage.selectMyAccountDropMenu();
 
     }
 
     @And("User clicks on Logout option")
     public void user_clicks_on_logout_option() {
-        driver.findElement(By.linkText("Logout")).click();
+        myAccountPage.logoutUsingOptionUnderMyAccountDropMenu();
 
     }
 
@@ -39,7 +51,7 @@ public class LogoutTest {
 
     @When("User clicks on Logout option from Right Column options")
     public void user_clicks_on_logout_option_from_right_column_options() {
-        driver.findElement(By.xpath("//div[@class='list-group']/a[text()='Logout']")).click();
+        myAccountPage.logoutUsingRightColumnOption();
     }
 
 }

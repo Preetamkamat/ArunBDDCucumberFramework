@@ -16,7 +16,25 @@ public class MyAccountPage {
     @FindBy(xpath = "//a[@class='list-group-item'][normalize-space()='Logout']")
     WebElement rightColumnLogoutOption;
 
+    @FindBy(xpath = "//span[text()='My Account']")
+    WebElement myAccountDropMenu;
+
+    @FindBy(linkText = "Logout")
+    WebElement logoutOptionUnderMyAccountDropMenu;
+
     public boolean isUserLoggedIn() {
         return rightColumnLogoutOption.isDisplayed();
+    }
+
+    public void selectMyAccountDropMenu() {
+        myAccountDropMenu.click();
+    }
+
+    public void logoutUsingOptionUnderMyAccountDropMenu() {
+        logoutOptionUnderMyAccountDropMenu.click();
+    }
+
+    public void logoutUsingRightColumnOption() {
+        rightColumnLogoutOption.click();
     }
 }
