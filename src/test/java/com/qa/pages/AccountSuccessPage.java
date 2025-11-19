@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class AccountSuccessPage extends Base {
-    WebDriver driver;
 
     public AccountSuccessPage(WebDriver driver) {
         this.driver = driver;

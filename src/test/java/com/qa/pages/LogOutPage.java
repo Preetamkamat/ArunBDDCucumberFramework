@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class LogOutPage extends Base {
-    WebDriver driver;
 
     public LogOutPage(WebDriver driver) {
         this.driver = driver;

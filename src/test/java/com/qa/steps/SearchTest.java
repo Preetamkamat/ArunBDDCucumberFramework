@@ -1,6 +1,7 @@
 package com.qa.steps;
 
 import com.qa.base.Base;
+import com.qa.hooks.Hooks;
 import com.qa.pages.HomePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

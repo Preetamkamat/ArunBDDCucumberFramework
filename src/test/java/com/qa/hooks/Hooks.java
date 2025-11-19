@@ -1,10 +1,13 @@
 package com.qa.hooks;
 
 
+import com.qa.base.Base;
+import com.qa.pages.*;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.v140.backgroundservice.BackgroundService;
 import org.openqa.selenium.edge.EdgeDriver;
 
 import java.io.File;
@@ -14,9 +17,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
-public class Hooks {
-    public static WebDriver driver;
-    public static Properties prop;
+public class Hooks extends Base {
 
     @Before
     public void setUp() throws IOException {
