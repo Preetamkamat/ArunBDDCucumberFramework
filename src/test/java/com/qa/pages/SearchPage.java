@@ -19,12 +19,14 @@ public class SearchPage extends Base {
     @FindBy(xpath = "//h2/following-sibling::p")
     WebElement noProductMatchingMessage;
 
-    public String getNoProductMachingMessage() {
+    public String getNoProductMatchingMessage() {
         return noProductMatchingMessage.getText();
     }
 
     public boolean isProductDisplayedInSearchResults() {
+        System.out.println(hpProduct.isDisplayed());
         return hpProduct.isDisplayed();
+
     }
 
 }

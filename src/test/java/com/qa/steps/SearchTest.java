@@ -35,16 +35,17 @@ public class SearchTest extends Base {
 
     @When("User enters non existing product into the Search box field")
     public void user_enters_non_existing_product_into_the_search_box_field() {
+        homePage = new HomePage(driver);
         homePage.enterProductInToSearchField(prop.getProperty("nonExistingProduct"));
     }
 
     @Then("Proper message should be displayed in the search results")
     public void proper_message_should_be_displayed_in_the_search_results() {
-        Assert.assertEquals("There is no product that matches the search criteria.", searchPage.getNoProductMachingMessage());
+        Assert.assertEquals("There is no product that matches the search criteria.", searchPage.getNoProductMatchingMessage());
     }
 
     @When("User doesnt enter any product into the Search box field")
     public void user_doesnt_enter_any_product_into_the_search_box_field() {
-        homePage.enterProductInToSearchField(prop.getProperty(""));
+        homePage = new HomePage(driver);
     }
 }

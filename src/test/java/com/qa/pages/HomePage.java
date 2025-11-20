@@ -47,7 +47,7 @@ public class HomePage extends Base {
     }
 
     public SearchPage clickOnSearchButton() {
-        searchBoxField.click();
+        searchIconButton.click();
         return new SearchPage(driver);
     }
 
