@@ -24,7 +24,6 @@ public class SearchPage extends Base {
     }
 
     public boolean isProductDisplayedInSearchResults() {
-        System.out.println(hpProduct.isDisplayed());
         return hpProduct.isDisplayed();
 
     }
